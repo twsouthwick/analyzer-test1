@@ -4,7 +4,10 @@ environment:
   image: Visual Studio 2017
 
 build_script:
-  - cmd: dotnet pack .\sometest\sometest.csproj
+  - cmd: msbuild /t:restore;build;pack .\sometest\sometest.csproj
+
+nuget:
+  project_feed: true
 
 artifacts:
   - path: 'bin\**\*.nupkg'
