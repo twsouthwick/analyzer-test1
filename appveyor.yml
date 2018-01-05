@@ -4,8 +4,10 @@ environment:
   image: Visual Studio 2017
 
 build_script:
-  - cmd: msbuild /t:restore;build;pack .\sometest\sometest.csproj
+  - cmd: msbuild /t:restore;build .\sometest\sometest.csproj
 
+after_build:
+  - cmd: msbuild /t:pack .\sometest\sometest.csproj
 nuget:
   project_feed: true
 
