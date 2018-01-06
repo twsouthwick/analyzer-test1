@@ -20,6 +20,7 @@ namespace BuildAgent
             var settings = await appveyor.Branch.GetConfigurationAsync();
 
             Console.WriteLine($"Using baseline: {settings.Baseline.Id}:{settings.Baseline.Version}");
+            Console.WriteLine($"Comparing against: {settings.Feed}: {appveyor.Version}");
         }
     }
 }

@@ -20,6 +20,7 @@ namespace BuildAgent
 
             PullRequest = GetPullRequestBranch();
             Branch = GetBranch();
+            Version = GetVersion();
         }
 
         public bool IsAppveyor { get; }
@@ -27,6 +28,16 @@ namespace BuildAgent
         public BranchInfo PullRequest { get; }
 
         public BranchInfo Branch { get; }
+
+        public string Version { get; }
+
+        private static string GetVersion()
+        {
+            var version = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_VERSION");
+            var idx = version.IndexOf(".build", StringComparison.Ordinal);
+
+            return version.Substring(0, idx);
+        }
 
         private static BranchInfo GetPullRequestBranch()
         {

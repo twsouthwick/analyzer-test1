@@ -1,6 +1,7 @@
 {
-    "baseline": {
+    "Baseline": {
         "Id": "sometest",
         "Version": "1.0.0"
-    }
+    },
+    "Feed": "https://ci.appveyor.com/nuget/analyzer-test1-bovc15t19ohd"
 }
