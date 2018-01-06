@@ -58,7 +58,7 @@ namespace BuildAgent
                 using (var content = new ByteArrayContent(bytes))
                 using (var result = await client.PostAsync($"http://52.173.34.157/api/analyzer/nuget", content))
                 {
-                    Console.WriteLine($"Response: {result.Content.ReadAsStringAsync()}");
+                    Console.WriteLine($"Response: {await result.Content.ReadAsStringAsync()}");
                 }
             }
         }
