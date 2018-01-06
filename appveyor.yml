@@ -5,7 +5,7 @@ environment:
 
 before_build:
   - cmd: choco install gitversion.portable
-  - cmd: gitversion /output builderserver
+  - cmd: gitversion /output buildserver
 
 build_script:
   - cmd: msbuild /t:restore;build;pack .\sometest.sln
