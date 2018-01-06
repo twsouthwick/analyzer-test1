@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Linq;
 
 namespace BuildAgent
 {
@@ -6,6 +8,14 @@ namespace BuildAgent
     {
         public AppVeyorInformation()
         {
+            foreach (DictionaryEntry entry in Environment.GetEnvironmentVariables())
+            {
+                if (entry.Key.ToString().StartsWith("APPVEYOR"))
+                {
+                    Console.WriteLine($"{entry.Key}: {entry.Value}");
+                }
+            }
+
             IsAppveyor = string.Equals(Environment.GetEnvironmentVariable("APPVEYOR"), "True", StringComparison.OrdinalIgnoreCase);
 
             if (!IsAppveyor)
