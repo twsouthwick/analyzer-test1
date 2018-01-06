@@ -11,7 +11,7 @@ namespace BuildAgent
         {
             using (var client = new HttpClient())
             {
-                var uri = $"https://raw.githubusercontent.com/{branch.Name}/{branch.Commit}/compat.yml";
+                var uri = $"https://raw.githubusercontent.com/{branch.Name}/{branch.Commit}/compat.json";
 
                 Console.WriteLine($"Getting config: ${uri}");
 
