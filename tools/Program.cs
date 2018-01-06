@@ -55,6 +55,8 @@ namespace BuildAgent
                 var json = JsonConvert.SerializeObject(request);
                 var bytes = Encoding.UTF8.GetBytes(json);
 
+                Console.WriteLine($"Request: '{json}'");
+
                 using (var content = new ByteArrayContent(bytes))
                 using (var result = await client.PostAsync($"http://52.173.34.157/api/analyzer/nuget", content))
                 {
