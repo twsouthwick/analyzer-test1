@@ -33,10 +33,7 @@ namespace BuildAgent
 
         private static string GetVersion()
         {
-            var version = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_VERSION");
-            var idx = version.IndexOf(".build", StringComparison.Ordinal);
-
-            return version.Substring(0, idx);
+            return Environment.GetEnvironmentVariable("GitVersion_NuGetVersionV2");
         }
 
         private static BranchInfo GetPullRequestBranch()

@@ -3,6 +3,10 @@ os: Visual Studio 2017
 environment:
   image: Visual Studio 2017
 
+before_build:
+  - cmd: choco install gitversion.portable
+  - cmd: gitversion /output builderserver
+
 build_script:
   - cmd: msbuild /t:restore;build;pack .\sometest.sln
 
