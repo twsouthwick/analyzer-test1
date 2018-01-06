@@ -53,13 +53,13 @@ namespace BuildAgent
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json");
 
                 var json = JsonConvert.SerializeObject(request);
-                var bytes = Encoding.UTF8.GetBytes(json);
 
                 Console.WriteLine($"Request: '{json}'");
 
-                using (var content = new ByteArrayContent(bytes))
+                using (var content = new StringContent(json, Encoding.UTF8, "application/json"))
                 using (var result = await client.PostAsync($"http://52.173.34.157/api/analyzer/nuget", content))
                 {
                     Console.WriteLine($"Response [{result.StatusCode}]: {await result.Content.ReadAsStringAsync()}");
