@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BuildAgent
@@ -21,6 +24,43 @@ namespace BuildAgent
 
             Console.WriteLine($"Using baseline: {settings.Baseline.Id}:{settings.Baseline.Version}");
             Console.WriteLine($"Comparing against: {settings.Feed}: {appveyor.Version}");
+
+            var original = new NuGetRequestItem
+            {
+                Feed = settings.Baseline.Feed,
+                Id = settings.Baseline.Id,
+                Version = settings.Baseline.Version
+            };
+
+            var updated = new NuGetRequestItem
+            {
+                Feed = settings.Feed,
+                Id = settings.Baseline.Id,
+                Version = appveyor.Version
+            };
+
+            await SubmitAsync(original, updated);
+        }
+
+        private static async Task SubmitAsync(NuGetRequestItem original, NuGetRequestItem updated)
+        {
+            var request = new NuGetRequest
+            {
+                Original = original,
+                Updated = updated
+            };
+
+            using (var client = new HttpClient())
+            {
+                var json = JsonConvert.SerializeObject(request);
+                var bytes = Encoding.UTF8.GetBytes(json);
+
+                using (var content = new ByteArrayContent(bytes))
+                using (var result = await client.PostAsync($"http://52.173.34.157/api/analyzer/nuget", content))
+                {
+                    Console.WriteLine($"Response: {result.Content.ReadAsStringAsync()}");
+                }
+            }
         }
     }
 }
