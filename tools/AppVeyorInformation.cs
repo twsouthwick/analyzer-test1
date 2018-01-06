@@ -18,11 +18,8 @@ namespace BuildAgent
 
             IsAppveyor = string.Equals(Environment.GetEnvironmentVariable("APPVEYOR"), "True", StringComparison.OrdinalIgnoreCase);
 
-            if (!IsAppveyor)
-            {
-                PullRequest = GetPullRequestBranch();
-                Branch = GetBranch();
-            }
+            PullRequest = GetPullRequestBranch();
+            Branch = GetBranch();
         }
 
         public bool IsAppveyor { get; }
