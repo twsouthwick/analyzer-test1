@@ -52,6 +52,8 @@ namespace BuildAgent
 
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+
                 var json = JsonConvert.SerializeObject(request);
                 var bytes = Encoding.UTF8.GetBytes(json);
 
