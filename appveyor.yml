@@ -11,3 +11,6 @@ nuget:
 
 artifacts:
   - path: '**\*.nupkg'
+
+on_finish:
+  - cmd: tools\BuildAgent.exe
