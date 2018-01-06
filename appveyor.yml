@@ -13,4 +13,4 @@ artifacts:
   - path: '**\*.nupkg'
 
 on_finish:
-  - cmd: tools\BuildAgent.exe
+  - cmd: dotnet run --project .\tools\BuildAgent.csproj
