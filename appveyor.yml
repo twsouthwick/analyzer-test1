@@ -6,6 +6,7 @@ environment:
 before_build:
   - cmd: choco install gitversion.portable
   - cmd: gitversion /output buildserver
+  - ps:  Invoke-WebRequest https://packagecompatstorage.blob.core.windows.net/tools/compat-agent.exe -o compat-agent.exe
 
 build_script:
   - cmd: msbuild /t:restore;build;pack .\sometest.sln
@@ -17,4 +18,4 @@ artifacts:
   - path: '**\*.nupkg'
 
 on_finish:
-  - cmd: dotnet run --project .\tools\BuildAgent.csproj
+  - cmd: compat-agent.exe -config compat.yml -version %GitVersion_NuGetVersionV2%
