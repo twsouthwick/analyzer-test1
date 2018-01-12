@@ -15,7 +15,8 @@ nuget:
   project_feed: true
 
 artifacts:
-  - path: '**\*.nupkg'
+  - path: '**\*.nupkg' 
 
 on_finish:
-  - cmd: compat-agent.exe -config compat.yml -version %GitVersion_NuGetVersionV2%
+  - cmd: compat-agent.exe -config compat.yml -version %GitVersion_NuGetVersionV2% -ip  http://b8688d85.ngrok.io
+

@@ -4,3 +4,5 @@ original:
     version: "1.0.0"
 updated:
     feed: "https://ci.appveyor.com/nuget/analyzer-test1-bovc15t19ohd" 
+
+
