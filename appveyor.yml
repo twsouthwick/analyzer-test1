@@ -18,5 +18,5 @@ artifacts:
   - path: '**\*.nupkg' 
 
 on_finish:
-  - cmd: compat-agent.exe -config compat.yml -version %GitVersion_NuGetVersionV2% -ip  http://b8688d85.ngrok.io
+  - cmd: compat-agent.exe -config compat.yml -version %GitVersion_NuGetVersionV2%
 
