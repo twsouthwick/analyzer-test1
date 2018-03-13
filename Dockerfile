@@ -1,7 +1,7 @@
 ####################################################
 # Docker image for performance testing of .NET Core.
 ####################################################
-FROM microsoft/dotnet:2.0.5-sdk-2.1.4-stretch
+FROM tasou/perf
 
 # Install curl so that we can download dependencies.
 RUN apt-get -y update && apt-get install -y curl
