@@ -1,0 +1,2 @@
+{"ignition":{
+    "config":{},"timeouts":{},"version":"2.1.0"},"networkd":{},"passwd":{"users":[{"name":"core","sshAuthorizedKeys":["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPUc4yl1AmS1oSUmaHUZnrTwpMO+oTDinWyP5pBvhFT9ENt6mLJ759+45QqK1RFS7Usvrt6eXLShkXYBqfDPPVonT7bYDHhLbPoVwdBCBmroOcI/1VsUXck/lisgDSHJrkjJXwrYIGhzF3TeX003llKHarfI2i7BrDoBKEvBOr/LfNHwraj2E8WWzkkN8zlkQKqgDgdpUmoJCmSe80QR2qpH5Hp+uzUXOG2SBnc6+pciWRTzX+FbOiAciwGOzIA57ZDCjHPMqbiYdOftaoF2pJtWZoFzKoLphpWEg1RmsTPwcUpQegKBJlxIUWN3FE/LpsqVC/0jeCb/wBf106uLT9"]}]},"storage":{},"systemd":{}}
