@@ -17,4 +17,4 @@ RUN apt-get -y install vim
 RUN cp /usr/bin/perf_3.16 /usr/bin/perf
 
 # This seems to initialize something so you don't see warnings later
-RUN lttng -v
+RUN lttng --version
