@@ -16,6 +16,5 @@ RUN apt-get -y install vim
 # Install perf and LTTng dependencies.
 RUN cp /usr/bin/perf_3.16 /usr/bin/perf
 
-# Set tracing environment variables.
-ENV COMPlus_PerfMapEnabled 1
-ENV COMPlus_EnableEventLog 1
+# This seems to initialize something so you don't see warnings later
+RUN lttng -v
