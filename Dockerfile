@@ -14,8 +14,8 @@ RUN apt-get -y install zip liblttng-ust-dev lttng-tools linux-tools lttng-module
 RUN apt-get -y install vim
 
 # Install perf and LTTng dependencies.
+RUN cp /usr/bin/perf_3.16 /usr/bin/perf
 
-RUN echo 'alias perf="/usr/bin/perf_3.16"' >> ~/.bashrc
 # Set tracing environment variables.
 ENV COMPlus_PerfMapEnabled 1
 ENV COMPlus_EnableEventLog 1
