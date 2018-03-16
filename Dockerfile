@@ -12,6 +12,7 @@ RUN mkdir /perf && cd /perf && curl -OL https://aka.ms/perfcollect && chmod +x p
 RUN apt-get -y install zip liblttng-ust-dev lttng-tools linux-tools
 # Install perf and LTTng dependencies.
 
+RUN echo 'alias perf="/usr/bin/perf_3.16"' >> ~/.bashrc
 # Set tracing environment variables.
 ENV COMPlus_PerfMapEnabled 1
 ENV COMPlus_EnableEventLog 1
