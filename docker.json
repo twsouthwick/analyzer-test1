@@ -216,6 +216,7 @@
 				"open",
 				"openat",
 				"pause",
+				"perf_event_open",
 				"pipe",
 				"pipe2",
 				"poll",
