@@ -6,7 +6,7 @@ environment:
 before_build:
   - cmd: choco install gitversion.portable
   - cmd: gitversion /output buildserver
-  - ps:  Invoke-WebRequest http://kompat.io/tools/kompat.exe -o kompat.exe
+  - ps:  Invoke-WebRequest http://kompat.io/downloads/kompat.exe -o kompat.exe
 
 build_script:
   - cmd: msbuild /t:restore;build;pack .\sometest.sln
