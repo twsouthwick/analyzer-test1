@@ -18,4 +18,4 @@ artifacts:
   - path: '**\*.nupkg'
 
 on_finish:
-  - cmd: kompat.exe -config compat.yml -version %GitVersion_NuGetVersionV2%
+  - cmd: kompat.exe -config compat.yml -version %GitVersion_NuGetVersionV2% -ip http://5941145d.ngrok.io
